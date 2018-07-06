@@ -16,6 +16,9 @@ RULES := 1
 
 build : $(IVPM_DTC_DIR)/$(PLATFORM)/dtc
 
+clean :
+	$(Q)rm -rf $(BUILD_DIR) $(IVPM_DTC_DIR)/$(PLATFORM)
+
 $(IVPM_DTC_DIR)/$(PLATFORM)/dtc : $(BUILD_DIR)/dtc.unpack
 	$(Q)if test ! -d `dirname $@`; then mkdir -p `dirname $@`; fi
 	$(Q)cd $(BUILD_DIR)/$(DTC_DIR) ; $(MAKE)
